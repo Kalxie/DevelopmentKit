@@ -60,9 +60,73 @@
 
 1. **[Download `StaticDevKit-Setup.exe`](https://github.com/Kalxie/StaticDevKit/releases/latest/download/StaticDevKit-Setup.exe)**
 2. Run the installer. Windows SmartScreen may warn that the app is unrecognised because it isn't code-signed yet — choose **More info → Run anyway**.
-3. Sign in, pick your `server-data` folder, and you're set.
+3. Sign in, pick your `server-data` folder (see [Setting up your server folder](#setting-up-your-server-folder)), and you're set.
 
 To update, download the latest installer and run it over your existing install.
+
+## Setting up your server folder
+
+StaticDevKit works with the standard FXServer layout. When it asks for a workspace, choose your **`server-data`** folder: the one that contains `server.cfg`.
+
+```
+FXServer/
+├── server/                     ← FXServer artifacts (download from runtime.fivem.net)
+│   ├── FXServer.exe
+│   └── ...
+└── server-data/                ← choose this folder in StaticDevKit
+    ├── server.cfg              ← required: server settings, license key, ensures
+    ├── builder.bat             ← optional: custom start script (used instead of FXServer.exe)
+    └── resources/              ← required: all your resources live here
+        ├── build-react-uis.ps1 ← optional: script for the "Build all UIs" button
+        ├── [core]/             ← [bracketed] folders are categories, not resources
+        │   ├── my_framework/
+        │   │   ├── fxmanifest.lua
+        │   │   ├── client.lua
+        │   │   └── server.lua
+        │   └── my_inventory/
+        ├── [maps]/
+        │   └── my_mlo/
+        │       ├── fxmanifest.lua
+        │       └── stream/     ← .ydr, .ytd, .ymap… files appear in the Assets tab
+        └── my_script/
+            └── fxmanifest.lua
+```
+
+**What StaticDevKit looks for**
+
+| Path | Required | Used for |
+|---|---|---|
+| `server-data/server.cfg` | ✅ | Identifies the folder as a server; FXServer starts with `+exec server.cfg` |
+| `server-data/resources/` | ✅ | Every resource shown in the Resources tab |
+| `../server/FXServer.exe` | One of these two | Starts the server when there's no `builder.bat` |
+| `server-data/builder.bat` | One of these two | A custom start script, run in place of FXServer.exe |
+| `resources/<name>/fxmanifest.lua` | ✅ per resource | Marks a folder as a resource and lists its dependencies (`__resource.lua` also works) |
+| `resources/<name>/stream/` | Optional | Streamed assets listed in the Assets tab |
+| `resources/build-*-uis.ps1` | Optional | PowerShell script run by the **Build all UIs** button |
+
+**Tips**
+
+- Group resources in `[category]` folders. They help you organise and don't change resource names, so `ensure my_framework` still works.
+- Keep `server/` and `server-data/` side by side so StaticDevKit can find `FXServer.exe` on its own.
+- Every resource needs a manifest. A minimal one looks like this:
+
+  ```lua
+  fx_version 'cerulean'
+  game 'gta5'
+
+  client_script 'client.lua'
+  server_script 'server.lua'
+  ```
+
+- Start resources from `server.cfg` with `ensure`, and list dependencies before the resources that use them:
+
+  ```cfg
+  ensure my_framework
+  ensure my_inventory
+  ensure [maps]        # ensures every resource in the category
+  ```
+
+New to FXServer? Follow the official [server setup guide](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/) first, then point StaticDevKit at the `server-data` folder it creates.
 
 ## Is it safe?
 
