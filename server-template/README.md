@@ -51,7 +51,7 @@ server-template/
 | Windows 10/11 | FXServer + Development Kit | |
 | FiveM license key | FXServer won't start without one | [keymaster.fivem.net](https://keymaster.fivem.net) (free) |
 | Node.js 18+ | Only if you build web UIs | [nodejs.org](https://nodejs.org/) |
-| MariaDB / MySQL | Only if your resources use a database | [mariadb.org](https://mariadb.org/download/) |
+| MariaDB | Only if your resources use a database | [mariadb.org](https://mariadb.org/download/) · [install guide](https://www.mariadbtutorial.com/getting-started/install-mariadb/) |
 | GTA V + FiveM client | To join your server | [fivem.net](https://fivem.net/) |
 
 ### 2. Download the FXServer artifacts
@@ -77,7 +77,35 @@ Extract `server.zip` into `server/` so that `server/FXServer.exe` exists. See [`
 > [!WARNING]
 > `secrets.cfg` contains your license key. It's already in `.gitignore`. Never upload or share it.
 
-### 4. Start it
+### 4. Set up the database (optional)
+
+Skip this if your resources don't use a database. Most frameworks (and `oxmysql`) need one.
+
+**Install MariaDB.** Follow the step-by-step guide: [**How to install MariaDB on Windows**](https://www.mariadbtutorial.com/getting-started/install-mariadb/). Download the installer from [mariadb.org](https://mariadb.org/download/). While installing:
+
+| Installer step | What to choose |
+|---|---|
+| Root password | Set one and remember it: it goes in `secrets.cfg` |
+| Enable access from remote machines | Leave **unticked** for a local dev server |
+| Use UTF8 as default character set | **Tick** it |
+| Install as service | **Tick** it, so the database starts with Windows |
+| Port | Keep **3306** unless something else uses it |
+
+The Windows installer also includes **HeidiSQL**, which Development Kit finds automatically and docks in its HeidiSQL tab.
+
+**Create your database.** Open HeidiSQL, connect to `127.0.0.1` as `root`, then right-click the connection → **Create new → Database**, and give it a name (for example `fivem_server`). To import an existing `.sql` file, select the database and use **File → Run SQL file…**.
+
+**Connect the server.** In `secrets.cfg`, set the connection string to match:
+
+```cfg
+# no root password
+set mysql_connection_string "mysql://root@localhost/fivem_server?charset=utf8mb4"
+
+# with a root password
+set mysql_connection_string "mysql://root:YourPassword@localhost/fivem_server?charset=utf8mb4"
+```
+
+### 5. Start it
 
 **With Development Kit (recommended):** open Development Kit, choose the `server-data` folder, and press **Start server** (`Alt+S`).
 

@@ -119,6 +119,7 @@
 
 - **New server?** Copy the [server template](server-template/), download the FXServer artifacts into its `server/` folder, and add your license key. The [template guide](server-template/README.md) walks through every step.
 - **Existing server?** Make sure it matches the [folder reference](#folder-reference) below.
+- **Need a database?** Install MariaDB with this [step-by-step Windows guide](https://www.mariadbtutorial.com/getting-started/install-mariadb/). It includes HeidiSQL, which the app docks in its own tab. The [template guide](server-template/README.md#4-set-up-the-database-optional) covers creating the database and connecting your server.
 
 **3. Point the app at it**
 
@@ -144,6 +145,7 @@ The [`server-template/`](server-template/) folder is a complete FXServer layout 
 | [`static_backend`](server-template/server-data/resources/static_backend/) | Restarts resources that went down with a dependency, and links the server to the app |
 | [Example resources](server-template/server-data/resources/) | A core resource, a dependent script, a streamed map and a React UI |
 | [`server/README.md`](server-template/server/README.md) | Where to download and extract the FXServer artifacts |
+| [Database setup](server-template/README.md#4-set-up-the-database-optional) | Installing MariaDB, creating a database and connecting it in `secrets.cfg` |
 
 **Download the FXServer artifacts:** [Windows (recommended / latest)](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/) · [Linux](https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/) · [current build numbers](https://changelogs-live.fivem.net/api/changelog/versions/win32/server) · [license key](https://keymaster.fivem.net)
 
@@ -244,6 +246,7 @@ Because the installer isn't code-signed yet, Windows and some antivirus tools ma
 |---|---|
 | **OS** | Windows 10 or 11 (64-bit) |
 | **Server** | An FXServer `server-data` folder (or the [template](server-template/)) |
+| **Database** | [MariaDB](https://mariadb.org/download/) ([install guide](https://www.mariadbtutorial.com/getting-started/install-mariadb/)), if your resources use one |
 | **Optional** | [FiveM](https://fivem.net/) · [HeidiSQL](https://www.heidisql.com/) · [VS Code](https://code.visualstudio.com/) · [Node.js 18+](https://nodejs.org/) for React UIs |
 
 ## 🔗 Links
