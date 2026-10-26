@@ -73,6 +73,9 @@ To update, download the latest installer and run it over your existing install.
 
 Development Kit works with the standard FXServer layout. When it asks for a workspace, choose your **`server-data`** folder: the one that contains `server.cfg`.
 
+> [!TIP]
+> **Starting from scratch?** Copy the ready-made [**server template**](server-template/). It has the full folder layout, `static_backend`, the start scripts and example resources, plus step-by-step setup with links to the official FXServer downloads.
+
 ```
 FXServer/
 ├── server/                     ← FXServer artifacts (download from runtime.fivem.net)
@@ -139,7 +142,7 @@ Yes. Development Kit is a local developer tool: it launches programs you already
 
 Because the installer isn't code-signed yet, Windows and some antivirus tools may flag it as "unrecognised". You can check it yourself:
 
-- **VirusTotal scan:** [view the report](https://www.virustotal.com/gui/file/d9e51f99b75cbfde9313165d725ce79af878d6ce154ed174cab69671fed541e5), which checks the file against 70+ antivirus engines.
+- **VirusTotal scan:** [view the report](https://www.virustotal.com/gui/file/d9e51f99b75cbfde9313165d725ce79af878d6ce154ed174cab69671fed541e5), scanned clean by all 66 antivirus engines (0/66).
 - **Checksum:** confirm your download matches the official build. In PowerShell:
 
   ```powershell
