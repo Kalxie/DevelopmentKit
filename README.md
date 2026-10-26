@@ -1,8 +1,13 @@
 <p align="center">
-  <img src="assets/app_icon.png" alt="StaticDevKit" width="96" />
+  <img src="assets/app_icon.png" alt="Development Kit" height="72" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/fivem_logo.svg" />
+    <img src="assets/fivem_logo_dark.svg" alt="FiveM" height="56" />
+  </picture>
 </p>
 
-<h1 align="center">StaticDevKit</h1>
+<h1 align="center">Development Kit</h1>
 
 <p align="center">
   <b>A desktop control centre for FiveM server development.</b><br />
@@ -16,20 +21,20 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Kalxie/StaticDevKit/releases/latest/download/StaticDevKit-Setup.exe">
-    <img alt="Download for Windows" src="https://img.shields.io/badge/Download%20for%20Windows-StaticDevKit--Setup.exe-2563eb?style=for-the-badge&logo=windows&logoColor=white" />
+  <a href="https://github.com/Kalxie/DevelopmentKit/releases/latest/download/Development-Kit-Setup.exe">
+    <img alt="Download for Windows" src="https://img.shields.io/badge/Download%20for%20Windows-Development--Kit--Setup.exe-2563eb?style=for-the-badge&logo=windows&logoColor=white" />
   </a>
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/overview.png" alt="StaticDevKit overview" width="900" />
+  <img src="docs/screenshots/overview.png" alt="Development Kit overview" width="900" />
 </p>
 
 ---
 
 ## What is it?
 
-**StaticDevKit** is a Windows desktop app by **Static Development** that brings the everyday tools of FiveM development together. Instead of juggling a terminal running FXServer, a HeidiSQL window, VS Code and the FiveM client, you point the kit at your `server-data` folder and drive everything from one place.
+**Development Kit** is a Windows desktop app by **Static Development** that brings the everyday tools of FiveM development together. Instead of juggling a terminal running FXServer, a HeidiSQL window, VS Code and the FiveM client, you point the kit at your `server-data` folder and drive everything from one place.
 
 ## Features
 
@@ -58,7 +63,7 @@
 
 ## Installation
 
-1. **[Download `StaticDevKit-Setup.exe`](https://github.com/Kalxie/StaticDevKit/releases/latest/download/StaticDevKit-Setup.exe)**
+1. **[Download `Development-Kit-Setup.exe`](https://github.com/Kalxie/DevelopmentKit/releases/latest/download/Development-Kit-Setup.exe)**
 2. Run the installer. Windows SmartScreen may warn that the app is unrecognised because it isn't code-signed yet — choose **More info → Run anyway**.
 3. Sign in, pick your `server-data` folder (see [Setting up your server folder](#setting-up-your-server-folder)), and you're set.
 
@@ -66,14 +71,14 @@ To update, download the latest installer and run it over your existing install.
 
 ## Setting up your server folder
 
-StaticDevKit works with the standard FXServer layout. When it asks for a workspace, choose your **`server-data`** folder: the one that contains `server.cfg`.
+Development Kit works with the standard FXServer layout. When it asks for a workspace, choose your **`server-data`** folder: the one that contains `server.cfg`.
 
 ```
 FXServer/
 ├── server/                     ← FXServer artifacts (download from runtime.fivem.net)
 │   ├── FXServer.exe
 │   └── ...
-└── server-data/                ← choose this folder in StaticDevKit
+└── server-data/                ← choose this folder in Development Kit
     ├── server.cfg              ← required: server settings, license key, ensures
     ├── builder.bat             ← optional: custom start script (used instead of FXServer.exe)
     └── resources/              ← required: all your resources live here
@@ -92,7 +97,7 @@ FXServer/
             └── fxmanifest.lua
 ```
 
-**What StaticDevKit looks for**
+**What Development Kit looks for**
 
 | Path | Required | Used for |
 |---|---|---|
@@ -107,7 +112,7 @@ FXServer/
 **Tips**
 
 - Group resources in `[category]` folders. They help you organise and don't change resource names, so `ensure my_framework` still works.
-- Keep `server/` and `server-data/` side by side so StaticDevKit can find `FXServer.exe` on its own.
+- Keep `server/` and `server-data/` side by side so Development Kit can find `FXServer.exe` on its own.
 - Every resource needs a manifest. A minimal one looks like this:
 
   ```lua
@@ -126,11 +131,11 @@ FXServer/
   ensure [maps]        # ensures every resource in the category
   ```
 
-New to FXServer? Follow the official [server setup guide](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/) first, then point StaticDevKit at the `server-data` folder it creates.
+New to FXServer? Follow the official [server setup guide](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/) first, then point Development Kit at the `server-data` folder it creates.
 
 ## Is it safe?
 
-Yes. StaticDevKit is a local developer tool: it launches programs you already have (FXServer, FiveM, HeidiSQL, VS Code) and reads your `server-data` folder. It doesn't collect telemetry, and your sign-in details are stored only on your PC.
+Yes. Development Kit is a local developer tool: it launches programs you already have (FXServer, FiveM, HeidiSQL, VS Code) and reads your `server-data` folder. It doesn't collect telemetry, and your sign-in details are stored only on your PC.
 
 Because the installer isn't code-signed yet, Windows and some antivirus tools may flag it as "unrecognised". You can check it yourself:
 
@@ -138,10 +143,10 @@ Because the installer isn't code-signed yet, Windows and some antivirus tools ma
 - **Checksum:** confirm your download matches the official build. In PowerShell:
 
   ```powershell
-  Get-FileHash .\StaticDevKit-Setup.exe -Algorithm SHA256
+  Get-FileHash .\Development-Kit-Setup.exe -Algorithm SHA256
   ```
 
-  The hash for each version is listed in its [release notes](https://github.com/Kalxie/StaticDevKit/releases).
+  The hash for each version is listed in its [release notes](https://github.com/Kalxie/DevelopmentKit/releases).
 
 ## Requirements
 

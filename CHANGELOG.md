@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to StaticDevKit are documented here.
+All notable changes to Development Kit are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## [0.3.0] — 2026-10-26
@@ -21,4 +21,4 @@ First public build.
 - Keyboard shortcuts for common actions.
 - Windows installer.
 
-[0.3.0]: https://github.com/Kalxie/StaticDevKit/releases/tag/v0.3.0
+[0.3.0]: https://github.com/Kalxie/DevelopmentKit/releases/tag/v0.3.0
