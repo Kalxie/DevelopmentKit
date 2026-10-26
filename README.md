@@ -13,7 +13,8 @@
 
 <p align="center">
   <b>A desktop control centre for FiveM server development.</b><br />
-  Run your FXServer, watch its console, profile resources, edit code and manage your database — all from one window.
+  Run your FXServer, watch its console, profile resources, edit code and manage your database — all from one window.<br />
+  <sub>Created by <a href="https://github.com/Kalxie"><b>Kalxie</b></a></sub>
 </p>
 
 <p align="center">
@@ -36,6 +37,7 @@
   <a href="#server-template">Server template</a> ·
   <a href="#folder-reference">Folder reference</a> ·
   <a href="#safety">Is it safe?</a> ·
+  <a href="#about">About</a> ·
   <a href="CHANGELOG.md">Changelog</a>
 </p>
 
@@ -45,7 +47,9 @@
 
 ---
 
-**Development Kit** is a Windows desktop app by **Static Development** that brings the everyday tools of FiveM development together. Instead of juggling a terminal running FXServer, a HeidiSQL window, VS Code and the FiveM client, you point the kit at your `server-data` folder and drive everything from one place.
+**Development Kit** is a Windows desktop app created by **[Kalxie](https://github.com/Kalxie)** that brings the everyday tools of FiveM development together. Instead of juggling a terminal running FXServer, a HeidiSQL window, VS Code and the FiveM client, you point the kit at your `server-data` folder and drive everything from one place.
+
+> Kalxie originally built it as the in-house dev tool for the **Static RP** server, then polished it into a standalone app for any FiveM developer.
 
 <table>
   <tr>
@@ -248,4 +252,21 @@ Because the installer isn't code-signed yet, Windows and some antivirus tools ma
 
 ---
 
-<p align="center"><sub>© Static Development. All rights reserved.</sub></p>
+<a id="about"></a>
+
+## 👤 About the creator
+
+<table>
+  <tr>
+    <td width="96" valign="top"><a href="https://github.com/Kalxie"><img src="https://github.com/Kalxie.png" width="80" alt="Kalxie" /></a></td>
+    <td valign="top">
+      <b><a href="https://github.com/Kalxie">Kalxie</a></b>: FiveM developer and creator of Development Kit.<br />
+      Development Kit started life as the internal tooling behind <b>Static RP</b>, built to stop juggling terminals, database tools and editors while developing the server. It grew into a full desktop app, now shared with the wider FiveM community.<br /><br />
+      <a href="https://github.com/Kalxie">GitHub</a> · <a href="https://twitch.tv/kalxie">Twitch</a> · Discord: <b>kalxiee.</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+<p align="center"><sub>Made by <a href="https://github.com/Kalxie">Kalxie</a> · Originally built for Static RP · © Kalxie. All rights reserved.</sub></p>
